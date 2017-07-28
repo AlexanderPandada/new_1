@@ -1,0 +1,32 @@
+# review: Else and If
+
+# [[if-statement]] creates what is called a "branch" in the code
+# To evalute it is True or False
+
+people = 30
+cars = 40
+buses = 15
+
+if cars > people:
+    print "we should take the cars."
+elif cars < people:
+    print "we should not take the cars"
+else:
+    print "we cannot decide"
+
+if buses > cars:
+    print "that is too many buses."
+elif buses < cars:
+    print "maybe we could take the buses."
+else:
+    print "we still cannot decide."
+
+if people > buses:
+    print "Alright, let us just take the buses."
+else:
+    print "Fine, let us stay home then."
+
+# order of evaluation:
+# if - elif... - else
+
+# if the first is True, it will run only the first one.
