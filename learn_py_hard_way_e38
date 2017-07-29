@@ -1,0 +1,76 @@
+# append pop 
+# join
+
+# this chapter explains how [txt.append('hello')] works
+# that was really helpful!
+
+ten_things = "apples oranges crows tlephone light sugar"
+
+print "wait there is not 10 things in that list, let us fix that."
+
+stuff = ten_things.split(' ')
+print stuff
+more_stuff = ["day", "night", "song", "frisbee",
+              "corn", "banana", "girl","boy"]
+
+while len(stuff) != 10:
+    next_one = more_stuff.pop()
+    print "Adding: ", next_one
+    stuff.append(next_one)
+    print "There is %d items now" % len(stuff)
+
+print "There we go: ", stuff
+
+print "Let us do some things with stuff."
+
+print stuff[1]
+print stuff[-1]
+print stuff.pop()
+print ' '.join(stuff)
+print '#'.join(stuff[3:5])
+#-----------------------------------------------------------
+'''
+two functions
+
+-------------------------1.join()---------------------------
+
+Syntax：'i'.join(j)
+i: seperator
+j: things can be connected (List, Str, Tuple, Dictionary)
+
+Return a new string connected by i
+
+For example
+
+1.1 List
+>>> seq1 = ['hello','good','boy','doiido']
+>>> print ' '.join(seq1)
+hello good boy doiido
+>>> print ':'.join(seq1)
+hello:good:boy:doiido
+
+1.2 String
+>>> seq2 = "hello good boy doiido"
+>>> print ':'.join(seq2)
+h:e:l:l:o: :g:o:o:d: :b:o:y: :d:o:i:i:d:o
+
+1.3 Tuple
+>>> seq3 = ('hello','good','boy','doiido')
+>>> print ':'.join(seq3)
+hello:good:boy:doiido
+
+1.4 Dictionary
+>>> seq4 = {'hello':1,'good':2,'boy':3,'doiido':4}
+>>> print ':'.join(seq4)
+boy:good:doiido:hello
+
+------------------2.os.path.join()-------------------------
+
+Syntax: os.path.join(path1[,path2[,......]])
+Returns after a combination of multiple paths
+
+For example
+
+>>> import os
+>>> os.path.join('/hello/','good/boy/','doiido')
+'/hello/good/boy/doiido'
