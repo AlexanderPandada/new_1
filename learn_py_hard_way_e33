@@ -1,0 +1,19 @@
+# revise
+
+def print_number(p, q):
+    i = 0
+    numbers = []    
+    while i < p:
+        print "At the top i is %d" % i
+        numbers.append(i)
+        i += q
+        
+        print "Numbers now: ", numbers
+        print "At the bottom i is %d" % i
+
+    print "The numbers: "
+
+    for num in numbers:
+        print num
+
+# at the bottom line of the output, there is a "None", how to get rid of it?
