@@ -1,0 +1,102 @@
+# 1.
+# The original script is kind of difficult to understand
+# Particularlly its logical
+# So I changed its structure
+
+# 2.
+# exit(0) means a good exit
+# exit(1) means it will be an error
+
+# 3.
+# xx.isdigit() used to judge weather it is a num, as raw_input must be str
+
+# 4.!
+# if there are many elif, a script has to go through them
+#----------------------------------------------------------------------------
+
+# This is a game.
+
+# users should make their first choice to get in a room.
+# and then he will make second choice.
+
+from sys import exit
+
+def start():
+    print "You are in a dark room."
+    print "There is a door to your right and left."
+    print "Which one do you take?\n"
+
+    next = raw_input("left or right:")
+
+    if next == "left":
+        bear_room()
+    elif next =="right":
+        cthulhu_room()
+    else:
+        dead("You stumble around the room until you starve.")
+
+# second choice1
+# this choice may triger the third choice
+def bear_room():
+    print "\nThere is a bear here."
+    print "The bear has a bunch of honey."
+    print "The fat bear is in front of another door."
+    print "How are you going to move the bear?\n"
+    bear_moved = False
+
+    while True:
+        next = raw_input("Choose \"taunt bear\", \"take honey\": ")
+
+        if next == "take honey":
+            dead("The bear looks at you then saps your face off.")
+        elif next == "taunt bear":
+            print "The bear has moved from the door. You can go to another room."
+            gold_room()
+        else:
+            print "I got no idea what that means."
+            
+# second choice2
+def cthulhu_room():
+    print "\nHere you see the great evil Cthulhu."
+    print "He, it, whatever stares at you and you go insane."
+    print "Do you flee for your life or eat your head?"
+
+    next = raw_input("> ")
+
+    if "flee" in next:
+        start()
+    elif "head" in next:
+        dead("Well that was tasty!")
+    else:
+        cthulhu_room()
+
+# third choice
+def gold_room():
+    print "This room is full of gold, How much do you take?\n"
+    next_step = False
+    
+    while next_step == False:
+        next = raw_input("Please give me a number: ")
+        if next.isdigit():
+            how_much = next
+            next_step = True
+        else:
+            print("Man, learn to type a number")
+#           dead("Man, learn to type a number")
+# the original script was [dead("Man, ....")],it could not loop.
+# because (def dead) contains (exit), which stops the script
+            next_step = False
+            
+    if how_much < 50:
+        print "Nice you are not greedy, you win"
+        exit(0)
+    else:
+        dead("You greedy bastard!")
+
+# a function to exit this game    
+def dead(why):
+    print why,"Good job!"
+    exit(0)
+
+
+start()
