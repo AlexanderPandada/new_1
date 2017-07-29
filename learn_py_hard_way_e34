@@ -1,0 +1,13 @@
+# revise
+# ordinal numbers and cardinal numbers
+
+animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'platypus']
+    
+print "The animal at 1 is the second animal,", animals[1]
+print "The third animal is the animal at 2,", animals[2]
+print "The first animal is the animal at 0,", animals[0]
+print "The animal at 3 is the fourth animal,", animals[3]
+print "The fifth animal is the animal at 4,", animals[4]
+print "The animal at 2 is the third animal,", animals[2]
+print "The sixth animal is the animal at 5,", animals[5]
+print "The animal at 4 is the fifth animal,", animals[4]
