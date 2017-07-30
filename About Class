@@ -1,0 +1,73 @@
+class Vehical(object):
+    def __init__(self, spd = 20.0):
+        print "init a Vehical"
+        self.speed = spd
+        self.distance = 0
+
+    def drive(self, distance):
+        self.distance += distance
+        print "total distance: ", self.distance
+        print "time: ", distance / self.speed, "\n"
+        # 对象的属性是跟随该对象的，再次访问时则重新计算
+        # 在c1里，总共里是230；到了c2，总共里是180
+        
+class Car(Vehical):
+    def __init__(self,spd = 50.0, price = 1.0): # 可以添加函数的默认值
+        super(Car, self).__init__()
+        print "init a Car"
+        self.speed = spd
+        self.price = price
+        print "speed =", spd
+                
+    def drive(self, distance):
+        print "cost", distance * self.price
+        super(Car, self).drive(distance) # 调用父类的drive函数，对象self不用写了
+
+
+class Bike(Vehical):
+    def __init__(self, spd = 20):
+        super(Bike, self).__init__(spd)
+        print "init a Bike"
+        print "speed:", spd
+
+    def change():
+        print "change the front type of the bicycle."
+    
+c1 = Car()
+c1.drive(180)
+c1.drive(50)
+# 调用的参数可以不同，但其属性是一致的
+
+c2 = Car()
+c2.drive(180)#（180）是函数里的参数
+
+b1 = Bike()
+b1.drive(200)
+b1.drive(400)
+b1.change
+
+class Sports_car(object):
+    def __init__(self, spd = 200):
+        print "init a sports car."
+        self.speed = spd
+        self.distance = 0
+
+    def running(self, distance):
+        self.distance += distance
+        print "total distance:", self.distance
+        print "time:", distance / self.speed
+
+Lan = Sports_car(500)
+Lan.running(2000)
+
+'''
+super (Bike, self)__init__()
+
+在最后传递参数的括号里
+
+1.__init__()        >>> speed = 50.0
+
+2.__init__(sp)      >>> speed = 1.0
+
+3.__init__(sp = 10) >>> speed = 10
+'''
